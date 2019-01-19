@@ -1,0 +1,19 @@
+{
+  "name": "node-graphql-api",
+  "version": "1.0.0",
+  "description": "A Node.js GraphQL API",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckwagaba/nodejs-graphql-api.git"
+  },
+  "author": "Colin Wagaba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ckwagaba/nodejs-graphql-api/issues"
+  },
+  "homepage": "https://github.com/ckwagaba/nodejs-graphql-api#readme"
+}
