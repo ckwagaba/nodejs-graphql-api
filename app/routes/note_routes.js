@@ -16,6 +16,17 @@ module.exports = function(app, db) {
         });
     });
     
+    // read all notes
+    app.get('/notes', (req, res) => {
+        db.collection('notes').find().toArray((error, result) => {
+            if (error) {
+                res.send({ error: 'An error has occured' });
+            } else {
+                res.send(result);
+            }
+        });
+    });
+    
     // read a specific note
     app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
