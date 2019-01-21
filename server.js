@@ -6,9 +6,14 @@ const app = express();
 
 const port = 8080;
 
-// routes
-require('./app/routes')(app, {});
+const db = require('./config/db');
 
-app.listen(port, () => {
-   console.log('We are live on ' + port); 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoClient.connect(db.url, (error, database) => {
+    if (error) return console.log(error);
+    require('./app/routes')(app, database);
+    app.listen(port, () => {
+       console.log('We are live on ' + port);
+    });
 });
