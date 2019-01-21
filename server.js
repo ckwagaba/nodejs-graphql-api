@@ -1,20 +1,14 @@
-var {  graphql, buildSchema } = require('graphql');
+const express = require('express');
+const mongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
 
-// construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-    type Query {
-        hello: String
-    }
-`);
+const app = express();
 
-// the root provides a resolver function for each API endpoint
-var root = {
-    hello: () => {
-        return 'Hello, World';
-    }
-};
+const port = 8000;
 
-// run the GraphQL query '{ hello }' and print out the reponse
-graphql(schema, '{ hello }', root).then((response) => {
-    console.log(response);
+// routes
+require('./app/routes')(app, {});
+
+app.listen(port, () => {
+   console.log('We are live on ' + port); 
 });
